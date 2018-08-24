@@ -16,10 +16,10 @@ namespace Kfstorm.BingWallpaper
             versionLabel.Text = Application.ProductVersion;
             homepageLabel.Text =
                 ((AssemblyCopyrightAttribute)
-                 (Assembly.GetEntryAssembly().GetCustomAttributes(typeof (AssemblyCopyrightAttribute), true)[0]))
+                 (Assembly.GetEntryAssembly().GetCustomAttributes(typeof(AssemblyCopyrightAttribute), true)[0]))
                     .Copyright;
             homepageLabel.Tag = @"http://www.kfstorm.com/blog/bing-wallpaper/";
-            noTitleTooltip.SetToolTip(homepageLabel, (string) homepageLabel.Tag);
+            noTitleTooltip.SetToolTip(homepageLabel, (string)homepageLabel.Tag);
             exitButton.Text = string.Format("退出{0}", Application.ProductName);
             noTitleTooltip.SetToolTip(exitButton, string.Format("使{0}停止运行。", Application.ProductName));
             runOnStartupCheckBox.Text = string.Format("开机时启动{0}。", Application.ProductName);
@@ -89,5 +89,19 @@ namespace Kfstorm.BingWallpaper
             if (titleLable.Tag != null) UrlHelper.OpenLink((string)titleLable.Tag);
         }
 
+        private void nextButton_Click(object sender, EventArgs e)
+        {
+            //
+            Program.ReflashPicture(++Constants.PictureIndex);
+        }
+
+        private void preButton_Click(object sender, EventArgs e)
+        {
+            //
+            if (Constants.PictureIndex > 0)
+            {
+                Program.ReflashPicture(--Constants.PictureIndex);
+            }
+        }
     }
 }

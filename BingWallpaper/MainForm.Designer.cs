@@ -32,6 +32,8 @@ namespace Kfstorm.BingWallpaper
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.Button NextPic;
+            System.Windows.Forms.Button PrePic;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.exitButton = new System.Windows.Forms.Button();
             this.homepageLabel = new System.Windows.Forms.LinkLabel();
@@ -43,15 +45,37 @@ namespace Kfstorm.BingWallpaper
             this.runningLabel = new System.Windows.Forms.Label();
             this.runningTooltip = new System.Windows.Forms.ToolTip(this.components);
             this.noTitleTooltip = new System.Windows.Forms.ToolTip(this.components);
+            NextPic = new System.Windows.Forms.Button();
+            PrePic = new System.Windows.Forms.Button();
             this.SuspendLayout();
+            // 
+            // NextPic
+            // 
+            NextPic.Location = new System.Drawing.Point(366, 316);
+            NextPic.Name = "NextPic";
+            NextPic.Size = new System.Drawing.Size(75, 32);
+            NextPic.TabIndex = 7;
+            NextPic.Text = "下一个";
+            NextPic.UseVisualStyleBackColor = true;
+            NextPic.Click += new System.EventHandler(this.nextButton_Click);
+            // 
+            // PrePic
+            // 
+            PrePic.Location = new System.Drawing.Point(285, 316);
+            PrePic.Name = "PrePic";
+            PrePic.Size = new System.Drawing.Size(75, 32);
+            PrePic.TabIndex = 8;
+            PrePic.Text = "上一个";
+            PrePic.UseVisualStyleBackColor = true;
+            PrePic.Click += new System.EventHandler(this.preButton_Click);
             // 
             // exitButton
             // 
             this.exitButton.AutoSize = true;
-            this.exitButton.Location = new System.Drawing.Point(407, 316);
+            this.exitButton.Location = new System.Drawing.Point(447, 316);
             this.exitButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.exitButton.Name = "exitButton";
-            this.exitButton.Size = new System.Drawing.Size(205, 32);
+            this.exitButton.Size = new System.Drawing.Size(150, 32);
             this.exitButton.TabIndex = 5;
             this.exitButton.Text = "退出";
             this.exitButton.UseVisualStyleBackColor = true;
@@ -129,6 +153,8 @@ namespace Kfstorm.BingWallpaper
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(624, 361);
+            this.Controls.Add(PrePic);
+            this.Controls.Add(NextPic);
             this.Controls.Add(this.runningLabel);
             this.Controls.Add(this.titleLable);
             this.Controls.Add(this.runOnStartupCheckBox);
@@ -146,6 +172,7 @@ namespace Kfstorm.BingWallpaper
             this.Text = "MainForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
+            this.Click += new System.EventHandler(this.titleLable_Click);
             this.ResumeLayout(false);
             this.PerformLayout();
 

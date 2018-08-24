@@ -90,6 +90,12 @@ namespace Kfstorm.BingWallpaper
             }
         }
 
+        public static void ReflashPicture(int i)
+        {
+            Constants.PictureIndex = i;
+            _downloader.Run();
+        }
+
         public static void SetRunOnStartup(bool startup)
         {
             try
